@@ -15,7 +15,7 @@ import {
   useTheme,
 } from '@react-navigation/native';
 import * as React from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import {
   useSafeAreaFrame,
   useSafeAreaInsets,
@@ -216,11 +216,7 @@ const SceneView = ({
               }
             >
               {header !== undefined && headerShown !== false ? (
-                <View
-                  onLayout={(e) => {
-                    setCustomHeaderHeight(e.nativeEvent.layout.height);
-                  }}
-                >
+                <>
                   {header({
                     back: previousDescriptor
                       ? {
@@ -234,7 +230,7 @@ const SceneView = ({
                     route,
                     navigation,
                   })}
-                </View>
+                </>
               ) : (
                 <HeaderConfig
                   {...options}
